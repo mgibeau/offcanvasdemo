@@ -1,0 +1,321 @@
+/* line 6, offcanvasdemo.scss */
+header:after, .content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 21, offcanvasdemo.scss */
+.main {
+  height: 100%;
+}
+
+/* line 25, offcanvasdemo.scss */
+body {
+  margin: 0;
+  font-family: "Lucida Grande", sans-serif;
+  color: #242424;
+}
+
+/* line 32, offcanvasdemo.scss */
+h1:first-child {
+  margin-top: 0;
+}
+
+/* line 38, offcanvasdemo.scss */
+p:first-child {
+  margin-top: 0;
+}
+
+/* line 44, offcanvasdemo.scss */
+a, a:link, a:visited {
+  color: #6fa0d5;
+}
+/* line 48, offcanvasdemo.scss */
+a:hover, a:focus {
+  color: #fff;
+}
+
+/* line 53, offcanvasdemo.scss */
+.main {
+  position: relative;
+  overflow-x: hidden;
+}
+/* line 57, offcanvasdemo.scss */
+.main .toggle-close {
+  display: none;
+}
+/* line 62, offcanvasdemo.scss */
+.main:target .offcanvas {
+  left: 0px;
+}
+/* line 66, offcanvasdemo.scss */
+.main:target .canvas {
+  -webkit-transform: translate3d(250px, 0, 0);
+  -moz-transform: translate3d(250px, 0, 0);
+  -ms-transform: translate3d(250px, 0, 0);
+  -o-transform: translate3d(250px, 0, 0);
+  transform: translate3d(250px, 0, 0);
+}
+/* line 70, offcanvasdemo.scss */
+.main:target .toggle-open {
+  display: none;
+}
+/* line 74, offcanvasdemo.scss */
+.main:target .toggle-close {
+  display: initial;
+}
+
+/* line 80, offcanvasdemo.scss */
+.offcanvas {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: url("img/tweed.png");
+  color: white;
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+/* line 90, offcanvasdemo.scss */
+.offcanvas .copy {
+  position: absolute;
+  bottom: 12px;
+  width: 100%;
+  font-size: 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+@media only screen and (min-width: 768px) {
+  /* line 80, offcanvasdemo.scss */
+  .offcanvas {
+    position: initial;
+    left: auto;
+    height: auto;
+  }
+  /* line 104, offcanvasdemo.scss */
+  .offcanvas .copy {
+    width: auto;
+    margin-bottom: 0;
+    margin-left: 580px;
+    text-align: right;
+  }
+}
+
+/* line 113, offcanvasdemo.scss */
+.menu {
+  margin: 43px 0 0;
+  padding: 0;
+}
+@media only screen and (min-width: 768px) {
+  /* line 113, offcanvasdemo.scss */
+  .menu {
+    margin-top: 0;
+  }
+  /* line 14, offcanvasdemo.scss */
+  .menu:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/* line 123, offcanvasdemo.scss */
+.menu-item {
+  display: block;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  list-style: none;
+}
+/* line 133, offcanvasdemo.scss */
+.menu-item a {
+  display: block;
+  padding: 12px 12px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #d5d5d5;
+}
+/* line 141, offcanvasdemo.scss */
+.menu-item a:hover, .menu-item a:focus {
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+  color: #ffffff;
+}
+/* line 147, offcanvasdemo.scss */
+.menu-item a i {
+  margin-right: 10px;
+}
+@media only screen and (min-width: 768px) {
+  /* line 123, offcanvasdemo.scss */
+  .menu-item {
+    float: left;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* line 160, offcanvasdemo.scss */
+.canvas {
+  width: 100%;
+  background-color: #b7c8db;
+  -webkit-box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.3);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  -o-transition: -o-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+/* line 168, offcanvasdemo.scss */
+.canvas:before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: -99px;
+  left: -10px;
+  margin-top: -31.5px;
+  border-top: 10px transparent solid;
+  border-right: 10px #f1f1f1 solid;
+  border-bottom: 10px transparent solid;
+}
+/* line 181, offcanvasdemo.scss */
+.home .canvas:before {
+  top: 86px;
+}
+/* line 185, offcanvasdemo.scss */
+.page-1 .canvas:before {
+  top: 129px;
+}
+@media only screen and (min-width: 768px) {
+  /* line 160, offcanvasdemo.scss */
+  .canvas {
+    top: 29px;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.3);
+  }
+  /* line 194, offcanvasdemo.scss */
+  .main:target .canvas {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  /* line 197, offcanvasdemo.scss */
+  .main:target .canvas:before {
+    display: none;
+  }
+}
+
+/* line 204, offcanvasdemo.scss */
+header {
+  padding: 5px;
+  background-color: #6fa0d5;
+}
+
+/* line 211, offcanvasdemo.scss */
+.menu-toggle a {
+  float: left;
+  margin-right: 10px;
+  padding: 3px 6px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5c5c5c), color-stop(100%, #404040));
+  background-image: -webkit-linear-gradient(#5c5c5c, #404040);
+  background-image: -moz-linear-gradient(#5c5c5c, #404040);
+  background-image: -o-linear-gradient(#5c5c5c, #404040);
+  background-image: linear-gradient(#5c5c5c, #404040);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid #3c3c3c;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+/* line 224, offcanvasdemo.scss */
+.menu-toggle a:hover, .menu-toggle a:focus {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #767676), color-stop(100%, #5a5a5a));
+  background-image: -webkit-linear-gradient(#767676, #5a5a5a);
+  background-image: -moz-linear-gradient(#767676, #5a5a5a);
+  background-image: -o-linear-gradient(#767676, #5a5a5a);
+  background-image: linear-gradient(#767676, #5a5a5a);
+}
+/* line 235, offcanvasdemo.scss */
+.menu-toggle a:active {
+  -webkit-box-shadow: inset 0 2px 5px black;
+  -moz-box-shadow: inset 0 2px 5px black;
+  box-shadow: inset 0 2px 5px black;
+  padding: 5px 6px 1px;
+}
+@media only screen and (min-width: 768px) {
+  /* line 241, offcanvasdemo.scss */
+  .menu-toggle a, .main:target .menu-toggle a {
+    display: none;
+  }
+}
+
+/* line 248, offcanvasdemo.scss */
+.header-title {
+  color: white;
+  line-height: 26px;
+}
+
+/* line 253, offcanvasdemo.scss */
+.content {
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+/* line 259, offcanvasdemo.scss */
+footer {
+  padding: 10px;
+  background-color: #b7c8db;
+  color: white;
+}
+/* line 264, offcanvasdemo.scss */
+footer a {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 270, offcanvasdemo.scss */
+  .offcanvas, .canvas {
+    margin: 0 auto;
+    width: 768px;
+  }
+
+  /* line 275, offcanvasdemo.scss */
+  .media-left {
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+
+  /* line 280, offcanvasdemo.scss */
+  .text-col-1-2, .text-col-2-2 {
+    float: left;
+    width: 49%;
+  }
+  /* line 284, offcanvasdemo.scss */
+  .text-col-1-2 img, .text-col-2-2 img {
+    max-width: 100%;
+  }
+
+  /* line 289, offcanvasdemo.scss */
+  .text-col-1-2 {
+    margin-right: 1%;
+  }
+
+  /* line 293, offcanvasdemo.scss */
+  .text-col-2-2 {
+    margin-left: 1%;
+  }
+}

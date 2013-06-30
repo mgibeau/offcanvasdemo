@@ -1,0 +1,296 @@
+@import "compass";
+
+$breakpoint_large: "only screen and (min-width: 768px)";
+
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.main {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Lucida Grande", sans-serif;
+    color: #242424;
+}
+
+h1 {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+p {
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+a {
+    &, &:link, &:visited {
+        color: #6fa0d5;
+    }
+
+    &:hover, &:focus {
+        color: #fff;
+    }
+}
+
+.main {
+    position: relative;
+    overflow-x: hidden;
+
+    .toggle-close {
+        display: none;
+    }
+
+    &:target {
+        .offcanvas {
+            left: 0px;
+        }
+
+        .canvas {
+            @include transform(translate3d(250px, 0, 0));
+        }
+
+        .toggle-open {
+            display: none;
+        }
+
+        .toggle-close {
+            display: initial;
+        }
+    }
+}
+
+.offcanvas {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: url('img/tweed.png');
+    color: white;
+    @include transition(left 0.3s ease);
+
+    .copy {
+        position: absolute;
+        bottom: 12px;
+        width: 100%;
+        font-size: 10px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media #{$breakpoint_large} {
+        position: initial;
+        left: auto;
+        height: auto;
+
+        .copy {
+            width: auto;
+            margin-bottom: 0;
+            margin-left: 580px;
+            text-align: right;
+        }
+    }
+}
+
+.menu {
+    margin: 43px 0 0;
+    padding: 0;
+
+    @media #{$breakpoint_large} {
+        @include clearfix;
+        margin-top: 0;
+    }
+}
+
+.menu-item {
+    $border-light: 1px solid rgba(255, 255, 255, 0.1);
+    $border-dark: 1px solid rgba(0, 0, 0, 0.2);
+
+    display: block;
+    position: relative;
+    border-top: $border-light;
+    border-bottom: $border-dark;
+    list-style: none;
+
+    a {
+        display: block;
+        padding: 12px 12px;
+
+        font-size: 14px;
+        text-decoration: none;
+        color: #d5d5d5;
+
+        &:hover, &:focus {
+            background-color: rgba(0, 0, 0, 0.4);
+            @include text-shadow(0 0 5px transparentize(yellow, 0.5));
+            color: #ffffff;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    @media #{$breakpoint_large} {
+        float: left;
+        border: none;
+        border-left: $border-light;
+        border-right: $border-dark;
+    }
+}
+
+.canvas {
+    $menu_item_height: 43px;
+
+    width: 100%;
+    background-color: #b7c8db;
+    @include box-shadow(-5px 0 15px 0 rgba(0, 0, 0, 0.3));
+    @include transition(transform 0.3s ease);
+
+    &:before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: -99px;
+        left: -10px;
+        margin-top: -10px - $menu_item_height / 2;
+        border: {
+            top: 10px transparent solid;
+            right: 10px #f1f1f1 solid;
+            bottom: 10px transparent solid;
+        }
+
+        .home & {
+            top: $menu_item_height * 2;
+        }
+
+        .page-1 & {
+            top: $menu_item_height * 3;
+        }
+    }
+
+    @media #{$breakpoint_large} {
+        top: 29px;
+        @include box-shadow(0 0 15px 0 rgba(0, 0, 0, 0.3));
+
+        .main:target & {
+            @include transform(translate3d(0, 0, 0));
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+header {
+    @extend %clearfix;
+    padding: 5px;
+    background-color: #6fa0d5;
+}
+
+.menu-toggle {
+    a {
+        float: left;
+        margin-right: 10px;
+        padding: 3px 6px;
+        @include background-image(
+            linear-gradient(color-stops(#5c5c5c, #404040))
+        );
+        @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2));
+        border: 1px solid #3c3c3c;
+        @include border-radius(5px);
+        text-decoration: none;
+        color: white;
+
+        &:hover, &:focus {
+            @include background-image(
+                linear-gradient(
+                    color-stops(
+                        lighten(#5c5c5c, 10),
+                        lighten(#404040, 10)
+                    )
+                )
+            );
+        }
+
+        &:active {
+            @include box-shadow(inset 0 2px 5px black);
+            padding: 5px 6px 1px;
+        }
+
+        @media #{$breakpoint_large} {
+            &, .main:target & {
+                display: none;
+            }
+        }
+    }
+}
+
+.header-title {
+    color: white;
+    line-height: 26px;
+}
+
+.content {
+    @extend %clearfix;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+footer {
+    padding: 10px;
+    background-color: #b7c8db;
+    color: white;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@media #{$breakpoint_large} {
+    .offcanvas, .canvas {
+        margin: 0 auto;
+        width: 768px;
+    }
+
+    .media-left {
+        float: left;
+        margin: 0 10px 10px 0;
+    }
+
+    .text-col-1-2, .text-col-2-2 {
+        float: left;
+        width: 49%;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .text-col-1-2 {
+        margin-right: 1%;
+    }
+
+    .text-col-2-2 {
+        margin-left: 1%;
+    }
+}
